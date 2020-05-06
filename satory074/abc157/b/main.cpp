@@ -1,18 +1,32 @@
 #include <cstdio>
 using namespace std;
 int main() {
-	int n, m;
-	scanf("%d %d", &n, &m);
-
-    int sc[m][2];
-    int s, c;
-    for (int i=0; i < m; i++){
-        scanf("%d %d", &s, &c);
-        sc[i][0] = s;
-        sc[i][1] = c;
+    // yoko
+	int yoko[3][3];
+    for (int i = 0; i < 3; i++){
+        for (int j = 0; j < 3; j++){
+            scanf("%d", &yoko[i][j]);
+        }
     }
 
-    for (int i=0; i < m; i++){
-        printf("%d %d\n", sc[i][0], sc[i][1]);
+    // tate
+    int tate[3][3];
+    for (int i = 0; i < 3; i++){
+        for (int j = 0; j < 3; j++){
+            tate[i][j] = yoko[j][i]
+        }
     }
+
+    // naname
+    int naname[2][3];
+    for (int i = 0; i < 2; i++){
+        for (int j = 0; j < 3; j++){
+            naname[i][j] = yoko[j][j]
+        }
+    }
+
+
+    int line[8][3];
+
+    int
 }
