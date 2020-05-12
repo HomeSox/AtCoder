@@ -12,4 +12,9 @@ x  = int(input())
 #
 # c = collections.Counter()
 
-print(x // 11 * 2 + 1)
+n11 = (x // 11)
+rest = x - n11 * 11
+rest6 = int(bool(rest % 6))
+rest5 = int(bool(rest // 6 % 5))
+#print(n11, rest, rest6, rest5)
+print(n11 * 2 + rest6 + rest5)
