@@ -49,8 +49,28 @@ A = list(map(int, input().split()))
 B = [int(input()) for i in range(N)]
 d = [0 for i in range(N)]
 
-#ビット演算
+#-------------
+# 出力
+#-------------
+print(' '.join(map(str, A))) #配列をスペース区切りで出力
+
+#-------------
+# 文字連結
+#-------------
+print(''.join(A)) #リストAの中身を文字連結(strのとき)
+
+#-------------
+# ビット演算
+#-------------
 l = [f'{i:015b}' for i in range(N)]
+
+#----
+
+from itertools import product
+[print(p) for p in product([0,1], repeat=3)]
+for p in product([0,1], repeat=3):
+    pass
+
 
 #古いpython
 l = list('{:015b}'.format(N))
@@ -84,3 +104,17 @@ que = deque(list)
 que.popleft() # 左の要素を取り出す
 que.append(V) # 右に要素を追加
 que.appendleft(V) # 左に要素を追加
+
+
+#-------------
+# LCM 最小公倍数
+#-------------
+
+import math
+def lcm(x, y):
+    return (x * y) // math.gcd(x, y)
+
+# 旧
+import fractions
+def lcm(x, y):
+    return (x * y) // fractions.gcd(x, y)
