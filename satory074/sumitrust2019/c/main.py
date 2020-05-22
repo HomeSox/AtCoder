@@ -4,18 +4,15 @@ import itertools as it
 import math
 #import numpy as np
  
-s  = input()
-#  = int(input())
+#  = input()
+x  = int(input())
 #  = map(int, input().split())
 #  = list(map(int, input().split()))
 #  = [int(input()) for i in range(N)]
 #
 # c = collections.Counter()
 
-max_ = -1
-for tail in range(2, len(s)):
-    s_ = s[:tail]
-    if len(s) % 2 == 0 and s_[:len(s_)//2] == s_[len(s_)//2:]: 
-        max_ = max(max_, len(s_))
+n = x // 100
+mod = x % 100
+print(0 if 5 * n < mod else 1)
 
-print(max_)
