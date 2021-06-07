@@ -1,0 +1,6 @@
+n, a, b = map(int, input().split())
+
+ans = 0
+for i in range(n+1):
+    sum_ = sum(map(int, list(i)))
+    if
