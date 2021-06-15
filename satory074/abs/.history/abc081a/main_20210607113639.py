@@ -1,1 +1,0 @@
-s = map(int, map(int, list(input())))
