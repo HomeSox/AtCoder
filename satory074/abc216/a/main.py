@@ -1,3 +1,4 @@
+# = map(int, input())
 X, Y = map(int, input().split('.'))
 if 0 <= Y <= 2:
   print(f"{X}-")
