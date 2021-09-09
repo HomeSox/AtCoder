@@ -1,8 +1,14 @@
 #!/usr/bin/env python3
 
 N = int(input())
-S = input()
-a, b = map(int, input().split())
 A = list(map(int, input().split()))
-B = [int(input()) for i in range(N)]
-d = [0 for i in range(N)]
+
+dp = [float('inf')] * N
+dp[0] = 0
+
+for i in range(1, N):
+    dp[i] = min(dp[i], dp[i-1] + abs(A[i] - A[i-1]))
+    if i > 1:
+        dp[i] = min(dp[i], dp[i-2] + abs(A[i] - A[i-2]))
+
+print(dp[N-1])
