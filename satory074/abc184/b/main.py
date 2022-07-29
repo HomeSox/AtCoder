@@ -1,0 +1,15 @@
+import math
+import collections as cl
+from collections import deque
+
+N, X = map(int, input().split())
+S = input()
+
+ans = X
+for s in S:
+    if s == "o":
+        ans += 1
+    else:
+        ans = max(0, ans - 1)
+
+print(ans)
