@@ -1,13 +1,13 @@
-#!/usr/bin/env python3
-import collections
-import itertools as it
-import math
-#import numpy as np
- 
-#  = input()
-#  = int(input())
-#  = map(int, input().split())
-#  = list(map(int, input().split()))
-#  = [int(input()) for i in range(N)]
-#
-# c = collections.Counter()
+N, K = map(int, input().split())
+
+ab = [tuple(map(int, input().split())) for _ in range(N)]
+
+ab.sort(key=lambda x: x[0])
+
+idx = 0
+for a, b in ab:
+    idx += b
+
+    if idx >= K:
+        print(a)
+        exit()
