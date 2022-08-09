@@ -2,28 +2,45 @@
 import collections
 import itertools as it
 import math
-#import numpy as np
- 
+
+# import numpy as np
+
 #  = input()
 #  = int(input())
-h, w = map(int, input().split())
-#  = list(map(int, input().split()))
-#  = [int(input()) for i in range(N)]
-#
-# c = collections.Counter()
+H, W = map(int, input().split())
 
-sharp = []
-p = 0
-for _ in range(h):
-    ipt = list(input())
-    print(ipt[p:])
-    for i in range(p, w):
-        if ipt[i] == '#':
-            p = i
-            break
+A = [list(input()) for _ in range(H)]
+
+hashi = []
+for a in A:
+    lidx = None
+    ridx = None
+    for i, s in enumerate(a):
+        if (lidx is not None) and (ridx is not None):
+            if s == "#":
+                exit(print("Impossible"))
+
+        if lidx is None:
+            if s == "#":
+                lidx = i
+                continue
+
+        if (lidx is not None) and (ridx is None):
+            if s == ".":
+                ridx = i - 1
+                continue
     else:
-        print('Impossible')
-        break
+        if (lidx is not None) and (ridx is None):
+            if a[-1] == "#":
+                ridx = W - 1
+
+        hashi.append((lidx, ridx))
+
+# print(hashi)
+
+for (l1, r1), (l2, r2) in zip(hashi[:-1], hashi[1:]):
+    if r1 != l2:
+        exit(print("Impossible"))
 else:
-    print('Possible')
+    exit(print("Possible"))
 
