@@ -2,8 +2,9 @@
 import collections
 import itertools as it
 import math
-#import numpy as np
- 
+
+# import numpy as np
+
 #  = input()
 #  = int(input())
 #  = map(int, input().split())
@@ -11,3 +12,13 @@ import math
 #  = [int(input()) for i in range(N)]
 #
 # c = collections.Counter()
+
+N = int(input())
+MOD = 10**9 + 7
+
+ans = 1
+for i in range(N):
+    ans *= i + 1
+    ans %= MOD
+
+print(ans)
