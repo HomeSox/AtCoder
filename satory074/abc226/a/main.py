@@ -1,2 +1,3 @@
-import collections as cl
-from collections import deque
+X = float(input())
+
+print(round(X + 0.0005))
