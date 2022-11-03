@@ -3,13 +3,26 @@ import math
 
 N, x, y = map(int, input().split())
 A = list(map(int, input().split()))
-A1 = A[0::2]
+A1 = A[2::2]
 A2 = A[1::2]
 
 
-def f(l):
-    clc = cl.Counter(l)
-    print(clc)
+def f(a, o, p):
+    s = set([o])
+    for n in a:
+        l = set([])
+        for n2 in s:
+            l.add(n2 + n)
+            l.add(n2 - n)
+
+        s = l
+
+    if p not in s:
+        print("No")
+        exit()
 
 
-print(f(A1))
+f(A1, A[0], x)
+f(A2, 0, y)
+
+print("Yes")
