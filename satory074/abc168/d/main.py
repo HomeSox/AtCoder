@@ -1,43 +1,29 @@
-#!/usr/bin/env python3
-import collections
-import itertools as it
-import math
-#import numpy as np
- 
-#  = input()
-#  = int(input())
-n, m  = map(int, input().split())
-#  = list(map(int, input().split()))
-#  = [int(input()) for i in range(N)]
-#
-# c = collections.Counter()
+from collections import deque
+
+N, M = map(int, input().split())
+
+G = [[] for _ in range(N + 1)]
+for _ in range(M):
+    A, B = map(int, input().split())
+
+    G[A].append(B)
+    G[B].append(A)
 
 
-node = [[] for _ in range(n+1)]
-for _ in range(m):
-    a, b = map(int, input().split())
-    node[a].append(b)
-    node[b].append(a)
+st = 1
+distance = [-1] * (N + 1)
+distance[st] = 0
+queue = deque([st])
+ans = [-1 for _ in range(N + 1)]
 
-chikai = [[-1, 10**9] for _ in range(n+1)]
-chikai[1][0] = [-1, 0]
+while queue:
+    current_node = queue.popleft()
+    for neighbor in G[current_node]:
+        if distance[neighbor] == -1:
+            distance[neighbor] = distance[current_node] + 1
+            ans[neighbor] = current_node
+            queue.append(neighbor)
 
-def set_shirube(n, v):
-    for n_ in node[n]:
-        print(n, n_, v, chikai[n][1], chikai[n_][1] == 10**9)
-        if chikai[n_][1] == 10**9:
-            chikai[n_] = [n, v]
-            set_shirube(n_, v+1)
-        else:
-            if v 
-            chikai[n].append([n_, v])
-
-set_shirube(1, 1)
-print(chikai)
-
-for l in chikai[1:]:
-    r, v = l
-    if v == 0:
-        print('Yes')
-    else:
-        print(r)
+print("Yes")
+for a in ans[2:]:
+    print(a)
