@@ -1,13 +1,7 @@
-#!/usr/bin/env python3
-import collections
-import itertools as it
-import math
-#import numpy as np
- 
-#  = input()
-#  = int(input())
-#  = map(int, input().split())
-#  = list(map(int, input().split()))
-#  = [int(input()) for i in range(N)]
-#
-# c = collections.Counter()
+a = int(input())
+b = int(input())
+
+if a > b:
+    print(b - (a % b))
+else:
+    print(b - a)
