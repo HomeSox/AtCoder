@@ -1,36 +1,28 @@
-import collections as cl
-import math
-
 N, M = map(int, input().split())
 L = list(map(int, input().split()))
 
-# print(sum(L) + (N - 1))
 
-
-def check(arr, k, mid):
-    cnt = 1
-    s = 0
-    for a in arr:
-        if s + a > mid:
-            cnt += 1
-            s = a + 1
+def check(w):
+    n_line = 1
+    n_line_length = 0
+    for n_string_length in L:
+        if n_line_length + n_string_length <= w:
+            n_line_length += n_string_length + 1
         else:
-            s += a + 1
+            n_line += 1
+            n_line_length = n_string_length + 1
 
-    return cnt <= k
+    return n_line <= M
 
 
 low = max(L)
-high = sum(L)
-
-ans = high
-while low <= high:
+high = sum(L) + (N - 1)
+while low < high:
     mid = (low + high) // 2
-    if check(L, M, mid):
-        ans = mid
-        high = mid - 1
+
+    if check(mid):
+        high = mid
     else:
         low = mid + 1
 
-print(ans)
-
+print(high)
