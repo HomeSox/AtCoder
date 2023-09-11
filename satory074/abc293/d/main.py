@@ -1,37 +1,46 @@
-import collections as cl
-import math
+from collections import deque
 
 N, M = map(int, input().split())
 
-ropes = [[["R", -1], ["B", -1]] for _ in range(N + 1)]
+G = [[] for _ in range(N)]
+deg = [0 for _ in range(N)]
 
 for _ in range(M):
     A, B, C, D = input().split()
-    A = int(A)
-    C = int(C)
+    A, C = int(A) - 1, int(C) - 1
 
-    r1 = ropes[A]
-    r2 = ropes[C]
+    G[A].append(C)
+    G[C].append(A)
 
-    if r1[0][0] == 'B':
-        r1[0], r1[1] = r1[1], r1[0]
+    deg[A] += 1
+    deg[C] += 1
 
-    if r2[0][0] == 'B':
-        r2[0], r2[1] = r2[1], r2[0]
+x, y = 0, 0
+used = [False for _ in range(N)]
+for i in range(N):
+    if used[i]:
+        continue
 
-    if B == 'R':
-        r2[1] = ["R", A]
+    que = deque([i])
+    used[i] = True
+
+    f = True
+    while que:
+        q = que.popleft()
+
+        if deg[q] != 2:
+            f = False
+
+        for v in G[q]:
+            if used[v]:
+                continue
+
+            que.append(v)
+            used[v] = True
+
+    if f:
+        x += 1
     else:
-        r2[1] = ["B", A]
+        y += 1
 
-    if D == 'R':
-        r1[0] = ["R", C]
-    else:
-        r1[0] = ["B", C]
-
-    ropes[A] = r1
-    ropes[C] = r2
-
-    for r in ropes:
-        print(r)
-    print()
+print(x, y)
