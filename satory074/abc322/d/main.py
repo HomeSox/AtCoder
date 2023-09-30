@@ -1,38 +1,58 @@
 P1 = [list(input()) for _ in range(4)]
 P2 = [list(input()) for _ in range(4)]
 P3 = [list(input()) for _ in range(4)]
+P = [P1, P2, P3]
 
-def check(P1, P2, P3):
-    marked_positions = set()
 
-    for grid in [P1, P2, P3]:
-        for i, row in enumerate(grid):
-            for j, cell in enumerate(row):
-                if cell == '#':
-                    if (i, j) in marked_positions:
-                        return False# 重複が見つかった場合
+def rotate(v):
+    w = [list(row) for row in v]
+    for i in range(4):
+        for j in range(4):
+            w[j][3 - i] = v[i][j]
 
-                    marked_positions.add((i, j))
+    return w
+
+
+def can_put(exist, P, di, dj):
+    for i in range(4):
+        for j in range(4):
+            if P[i][j] == "#":
+                ni, nj = i + di, j + dj
+
+                if not (0 <= ni < 4 and 0 <= nj < 4):
+                    return False
+
+                if exist[ni][nj] == 1:
+                    return False
+
+                exist[ni][nj] = 1
 
     return True
 
-def rotate(grid):
-    return [list(row)[::-1] for row in zip(*grid)]
 
-for i1 in range(4):
-    P1 = rotate(P1)
+def dfs(i, l, P):
+    if i == 3:
+        if all(cell == 1 for row in l for cell in row):
+            print("Yes")
+            exit()
 
-    for i2 in range(4):
-        P2 = rotate(P2)
+        return
 
-        for i3 in range(4):
-            P3 = rotate(P3)
+    for di in range(-3, 4):
+        for dj in range(-3, 4):
+            ex2 = [row[:] for row in l]
 
-            if check(P1, P2, P3):
-                [print(''.join(row)) for row in P1]
-                [print(''.join(row)) for row in P2]
-                [print(''.join(row)) for row in P3]
-                print('Yes')
-                exit()
+            if can_put(ex2, P[i], di, dj):
+                dfs(i + 1, ex2, P)
 
-print('No')
+
+for _ in range(4):
+    for _ in range(4):
+        l = [[0 for _ in range(4)] for _ in range(4)]
+        dfs(0, l, P)
+        P[2] = rotate(P[2])
+
+    P[1] = rotate(P[1])
+
+print("No")
+exit()
