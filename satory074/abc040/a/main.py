@@ -1,3 +1,2 @@
-import math
-import collections as cl
-from collections import deque
+n, x = map(int, input().split())
+print(min(x - 1, n - x))
