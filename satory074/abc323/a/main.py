@@ -1,2 +1,3 @@
-import collections as cl
-import math
+S = input()
+
+print(''.join([c for c in S if c not in 'aeiou']))
