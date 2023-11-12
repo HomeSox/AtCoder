@@ -1,76 +1,58 @@
+import itertools
+
 N = int(input())
-R = list(input())
-C = list(input())
+R = input()
+C = input()
 
-is_A = [[True for _ in range(N)] for _ in range(N)]
-is_B = [[True for _ in range(N)] for _ in range(N)]
-is_C = [[True for _ in range(N)] for _ in range(N)]
+for a in itertools.permutations(range(N)):
+    for b in itertools.permutations(range(N)):
+        for c in itertools.permutations(range(N)):
+            is_valid = True
+            for ai, bi, ci in zip(a, b, c):
+                if ai == bi or bi == ci or ci == ai:
+                    is_valid = False
+                    break
 
-def kakutei(s, i, j):
-    if s == 'A':
-        for k in range(N):
-            if k == i:
+            if not is_valid:
                 continue
 
-            is_A[i][k] = False
+            S = [["." for _ in range(N)] for _ in range(N)]
 
-        for k in range(N):
-            if k == j:
-                continue
+            for i, j in enumerate(a):
+                S[i][j] = "A"
 
-            is_A[k][j] = False
+            for i, j in enumerate(b):
+                S[i][j] = "B"
 
-        is_B[i][j] = False
-        is_C[i][j] = False
+            for i, j in enumerate(c):
+                S[i][j] = "C"
 
-        return
+            # R
+            r = ''
+            for srow in S:
+                for s in srow:
+                    if s == '.':
+                        continue
 
-    if s == 'B':
-        for k in range(N):
-            if k == i:
-                continue
+                    r += s
+                    break
 
-            is_B[i][k] = False
+            # C
+            c_ = ''
+            for srow in list(zip(*S)):
+                for s in srow:
+                    if s == '.':
+                        continue
 
-        for k in range(N):
-            if k == j:
-                continue
+                    c_ += s
+                    break
 
-            is_B[k][j] = False
+            if r == R and c_ == C:
+                print('Yes')
 
-        is_A[i][j] = False
-        is_C[i][j] = False
+                for srow in S:
+                    print(''.join(srow))
 
-        return
+                exit()
 
-    if s == 'C':
-        for k in range(N):
-            if k == i:
-                continue
-
-            is_C[i][k] = False
-
-        for k in range(N):
-            if k == j:
-                continue
-
-            is_C[k][j] = False
-
-        is_A[i][j] = False
-        is_B[i][j] = False
-
-        return
-
-if R[0] != C[0]:
-    print('No')
-    exit()
-else:
-    kakutei(R[0], 0, 0)
-
-[print(l) for l in is_A]
-print()
-[print(l) for l in is_B]
-print()
-[print(l) for l in is_C]
-
-
+print('No')
