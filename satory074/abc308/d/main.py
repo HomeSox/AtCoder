@@ -1,38 +1,26 @@
-import sys
-
-sys.setrecursionlimit(10**6)
+from collections import deque
 
 H, W = map(int, input().split())
 G = [input() for _ in range(H)]
 
-snuke = 'snuke'
+SNUKE = "snuke"
+que = deque()
+visited = [[False for _ in range(W)] for _ in range(H)]
 
-visited = set()
-
-dx = [-1, 0, 1, 0]
-dy = [0, 1, 0, -1]
-
-def next_char(c):
-    return snuke[(snuke.index(c) + 1) % len(snuke)]
-
-def is_valid(x, y):
-    return 0 <= x < H and 0 <= y < W and (x, y) not in visited
-
-def dfs(x, y, c):
-    if (x, y) == (H-1, W-1):
-        return True
-
-    visited.add((x, y))
-    for i in range(4):
-        nx, ny = x + dx[i], y + dy[i]
-
-        if is_valid(nx, ny) and G[nx][ny] == next_char(c):
-            if dfs(nx, ny, G[nx][ny]):
-                return True
-
-    return False
-
-if dfs(0, 0, 's'):
-    print("Yes")
+que.append((0, 0, 0))
+while que:
+    i, j, step = que.popleft()
+    if i < 0 or i >= H or j < 0 or j >= W or visited[i][j] or G[i][j] != SNUKE[step % len(SNUKE)]:
+        continue
+    
+    visited[i][j] = True
+    if i == H - 1 and j == W - 1:
+        print("Yes")
+        break
+    
+    que.append((i - 1, j, step + 1))
+    que.append((i, j - 1, step + 1))
+    que.append((i + 1, j, step + 1))
+    que.append((i, j + 1, step + 1))
 else:
     print("No")
