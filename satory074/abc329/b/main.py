@@ -1,12 +1,6 @@
-import collections as cl
-import math
-import sys
-from collections import deque
+N = int(input())
+A = list(map(int, input().split()))
 
-sys.setrecursionlimit(10 ** 6)
+l = sorted(list(set(A)))
 
-= input()
-= int(input())
-= map(int, input().split())
-= list(map(int, input().split()))
-
+print(l[-2])
