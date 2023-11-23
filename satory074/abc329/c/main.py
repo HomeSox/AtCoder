@@ -1,12 +1,16 @@
-import collections as cl
-import math
-import sys
-from collections import deque
+N = int(input())
+S = input()
 
-sys.setrecursionlimit(10 ** 6)
+ma = [0 for _ in range(26)]
 
-= input()
-= int(input())
-= map(int, input().split())
-= list(map(int, input().split()))
+l = 0
+while l < N:
+    r = l + 1
+    while r < N and S[l] == S[r]:
+        r += 1
 
+    c = ord(S[l]) - ord('a')
+    ma[c] = max(ma[c], r - l)
+    l = r
+
+print(sum(ma))
