@@ -1,2 +1,2 @@
-import collections as cl
-from collections import deque
+S = input()
+print(int(S[0]) * int(S[-1]))
