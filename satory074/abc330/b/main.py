@@ -9,7 +9,7 @@ N, L, R = map(int, input().split())
 A = list(map(int, input().split()))
 
 l = []
-for a in a:
+for a in A:
     if a >= L and a <= R:
         l.append(a)
         continue
