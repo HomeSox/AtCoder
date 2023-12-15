@@ -1,8 +1,9 @@
 N = int(input())
 S, T = input().split()
 
-ans = ''
+ans = ""
 for i in range(N):
-    ans += S[i:i+1] + T[i:i+1]
+  ans += S[i]
+  ans += T[i]
 
 print(ans)
