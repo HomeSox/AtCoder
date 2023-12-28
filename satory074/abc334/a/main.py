@@ -5,8 +5,9 @@ from collections import deque
 
 sys.setrecursionlimit(10 ** 6)
 
-= input()
-= int(input())
-= map(int, input().split())
-= list(map(int, input().split()))
+B, G = map(int, input().split())
 
+if B > G:
+    print('Bat')
+else:
+    print('Glove')
