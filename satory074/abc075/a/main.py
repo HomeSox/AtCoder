@@ -2,8 +2,9 @@
 import collections
 import itertools as it
 import math
+
 #import numpy as np
- 
+
 #  = input()
 #  = int(input())
 #  = map(int, input().split())
@@ -11,3 +12,16 @@ import math
 #  = [int(input()) for i in range(N)]
 #
 # c = collections.Counter()
+
+A, B, C = map(int, input().split())
+ABC = [A, B, C]
+
+l = []
+for n in ABC:
+    if n in l:
+        print(n)
+        exit()
+    else:
+        l.append(n)
+
+print(l[-1])
