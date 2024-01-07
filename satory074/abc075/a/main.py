@@ -15,13 +15,15 @@ import math
 
 A, B, C = map(int, input().split())
 ABC = [A, B, C]
+ABC.sort()
 
 l = []
 for n in ABC:
     if n in l:
-        print(n)
+        if len(l) == 1:
+            print(ABC[-1])
+        else:
+            print(l[0])
         exit()
     else:
         l.append(n)
-
-print(l[-1])
