@@ -5,8 +5,7 @@ from collections import deque
 
 sys.setrecursionlimit(10 ** 6)
 
-= input()
-= int(input())
-= map(int, input().split())
-= list(map(int, input().split()))
+a = int(input())
+b = int(input())
 
+print(min(abs(a - b) % 10, 10 - abs(a - b) % 10))
