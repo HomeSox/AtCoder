@@ -1,3 +1,4 @@
-import math
-import collections as cl
-import collections import deque
+s = input()
+i = int(input())
+
+print(s[i-1])
