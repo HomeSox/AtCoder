@@ -1,12 +1,10 @@
-import collections as cl
-import math
-import sys
-from collections import deque
+N = int(input())
 
-sys.setrecursionlimit(10 ** 6)
+ans = 0
+for b in bin(N)[::-1]:
+  if b == '0':
+    ans += 1
+  else:
+    break
 
-= input()
-= int(input())
-= map(int, input().split())
-= list(map(int, input().split()))
-
+print(ans)
