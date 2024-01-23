@@ -1,12 +1,6 @@
-import collections as cl
-import math
-import sys
-from collections import deque
+N = int(input())
+X = list(map(int, input().split()))
 
-sys.setrecursionlimit(10 ** 6)
+X.sort()
 
-= input()
-= int(input())
-= map(int, input().split())
-= list(map(int, input().split()))
-
+print(sum(X[N:-N]) / (N * 3))
