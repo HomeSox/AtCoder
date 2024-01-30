@@ -1,12 +1,18 @@
 import collections as cl
-import math
-import sys
-from collections import deque
 
-sys.setrecursionlimit(10 ** 6)
+S = input()
+clc = cl.Counter(S)
 
-= input()
-= int(input())
-= map(int, input().split())
-= list(map(int, input().split()))
+ans, ma = clc.most_common()[0]
+#print(clc.most_common())
 
+for k, v in clc.most_common():
+  if v == ma:
+    if k < ans:
+      ans = k
+  else:
+    break
+
+print(ans)
+
+  
