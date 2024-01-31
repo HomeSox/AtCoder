@@ -1,12 +1,12 @@
-import collections as cl
-import math
-import sys
-from collections import deque
+S = input()
+l = ['A', 'B', 'C']
 
-sys.setrecursionlimit(10 ** 6)
+idx = 0
+for l_ in l:
+  while idx < len(S) and S[idx] == l_:
+    idx += 1
 
-= input()
-= int(input())
-= map(int, input().split())
-= list(map(int, input().split()))
-
+if len(S) == idx:
+  print('Yes')
+else:
+  print('No')
