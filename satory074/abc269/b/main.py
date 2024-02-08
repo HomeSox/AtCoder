@@ -1,12 +1,15 @@
-import collections as cl
-import math
-import sys
-from collections import deque
+S = [input() for _ in range(10)]
 
-sys.setrecursionlimit(10 ** 6)
+A, B, C, D = 10 ,0, 10, 0
+for i, s in enumerate(S):
+  for j, s_ in enumerate(s):
+    if s_ == '.':
+      continue
+    
+    A = min(A, i + 1)
+    B = max(B, i + 1)
+    C = min(C, j + 1)
+    D = max(D, j + 1)
 
-= input()
-= int(input())
-= map(int, input().split())
-= list(map(int, input().split()))
-
+print(A, B)
+print(C, D)  
