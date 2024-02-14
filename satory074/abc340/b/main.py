@@ -1,12 +1,13 @@
-import collections as cl
-import math
-import sys
-from collections import deque
+Q = int(input())
 
-sys.setrecursionlimit(10 ** 6)
-
-= input()
-= int(input())
-= map(int, input().split())
-= list(map(int, input().split()))
-
+ans = []
+for _ in range(Q):
+  n, x = map(int, input().split())
+  
+  if n == 1:
+    ans.append(x)
+    continue
+  
+  if n == 2:
+    print(ans[-x])
+    continue
