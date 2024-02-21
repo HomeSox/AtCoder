@@ -1,12 +1,17 @@
-import collections as cl
-import math
-import sys
-from collections import deque
+N, K= map(int, input().split())
+S = input()
 
-sys.setrecursionlimit(10 ** 6)
-
-= input()
-= int(input())
-= map(int, input().split())
-= list(map(int, input().split()))
-
+ans = ''
+n_kessho = 0
+for s in S:
+  if n_kessho >= K:
+    ans += 'x'
+    continue
+  
+  if s == 'o':
+    ans += 'o'
+    n_kessho += 1
+  else:
+    ans += 'x'
+  
+print(ans)
