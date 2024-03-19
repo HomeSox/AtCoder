@@ -1,12 +1,19 @@
-import collections as cl
-import math
-import sys
-from collections import deque
+N = int(input())
+S = input()
 
-sys.setrecursionlimit(10 ** 6)
-
-= input()
-= int(input())
-= map(int, input().split())
-= list(map(int, input().split()))
-
+for sa in range(1, N):
+    ans = 0
+    for st in range(N):
+      if sa + st >= N:
+        break
+      
+      if S[st] == S[st + sa]:
+        break
+      else:
+        ans += 1
+      
+      # print(S[st], S[st+sa])
+    
+    print(ans)
+    # print('--')
+  
