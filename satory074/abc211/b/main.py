@@ -1,12 +1,6 @@
-import collections as cl
-import math
-import sys
-from collections import deque
+S = [input() for _ in range(4)]
 
-sys.setrecursionlimit(10 ** 6)
-
-= input()
-= int(input())
-= map(int, input().split())
-= list(map(int, input().split()))
-
+if len(set(S)) == 4:
+  print('Yes')
+else:
+  print('No')
