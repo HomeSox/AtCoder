@@ -1,12 +1,7 @@
-import collections as cl
-import math
-import sys
-from collections import deque
+X = int(input())
 
-sys.setrecursionlimit(10 ** 6)
-
-= input()
-= int(input())
-= map(int, input().split())
-= list(map(int, input().split()))
-
+if X % 10 == 0:
+  print(X // 10)
+else:
+  print(X // 10 + 1)
+  
