@@ -1,12 +1,4 @@
-import collections as cl
-import math
-import sys
-from collections import deque
+N, D = map(int, input().split())
 
-sys.setrecursionlimit(10 ** 6)
-
-= input()
-= int(input())
-= map(int, input().split())
-= list(map(int, input().split()))
-
+nsee = D * 2 + 1
+print(N // nsee + min(N % nsee, 1))
