@@ -1,12 +1,9 @@
-import collections as cl
-import math
-import sys
-from collections import deque
+N, Q = map(int, input().split())
+T = list(map(int, input().split()))
 
-sys.setrecursionlimit(10 ** 6)
+l = [True for _ in range(N + 1)]
 
-= input()
-= int(input())
-= map(int, input().split())
-= list(map(int, input().split()))
+for t in T:
+  l[t] = not l[t]
 
+print(sum(l) - 1)
