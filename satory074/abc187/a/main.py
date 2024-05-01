@@ -1,3 +1,7 @@
-import math
-import collections as cl
-import collections import deque
+A, B = map(str, input().split())
+
+a = list(map(int, A))
+b = list(map(int, B))
+
+print(max(sum(a), sum(b)))
+
