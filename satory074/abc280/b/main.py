@@ -1,12 +1,11 @@
-import collections as cl
-import math
-import sys
-from collections import deque
+N = int(input())
+S = list(map(int, input().split()))
 
-sys.setrecursionlimit(10 ** 6)
+# print(S)
 
-= input()
-= int(input())
-= map(int, input().split())
-= list(map(int, input().split()))
+ans = [S[0]]
 
+for s in S[1:]:
+  ans.append(s - sum(ans))
+  
+print(*ans)
