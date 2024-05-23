@@ -1,12 +1,13 @@
-import collections as cl
-import math
-import sys
-from collections import deque
+N = input()
+A = map(int, input().split())
+B = map(int, input().split())
 
-sys.setrecursionlimit(10 ** 6)
-
-= input()
-= int(input())
-= map(int, input().split())
-= list(map(int, input().split()))
-
+ans = 0
+for a, b in zip(A, B):
+  ans += a * b
+  
+if ans == 0:
+  print('Yes')
+else:
+  print('No')
+  
