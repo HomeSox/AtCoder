@@ -1,12 +1,12 @@
-import collections as cl
 import math
-import sys
-from collections import deque
 
-sys.setrecursionlimit(10 ** 6)
+P = int(input())
 
-= input()
-= int(input())
-= map(int, input().split())
-= list(map(int, input().split()))
+ans = 0
+for i in range(10, 0, -1):
+    ans += P // math.factorial(i)
+    P -= math.factorial(i) * (P // math.factorial(i))
 
+    # print(P, (math.factorial(i) * (P // math.factorial(i))), ans)
+
+print(ans)
