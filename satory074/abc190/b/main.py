@@ -1,12 +1,9 @@
-import collections as cl
-import math
-import sys
-from collections import deque
+N, S, D = map(int, input().split())
 
-sys.setrecursionlimit(10 ** 6)
+for _ in range(N):
+    X, Y = map(int, input().split())
+    if X < S and Y > D:
+        print("Yes")
+        exit()
 
-= input()
-= int(input())
-= map(int, input().split())
-= list(map(int, input().split()))
-
+print("No")
