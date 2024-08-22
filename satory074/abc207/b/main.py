@@ -1,12 +1,11 @@
-import collections as cl
-import math
-import sys
-from collections import deque
+A, B, C, D = map(int, input().split())
 
-sys.setrecursionlimit(10 ** 6)
-
-= input()
-= int(input())
-= map(int, input().split())
-= list(map(int, input().split()))
-
+l = [A, 0]
+for i in range(A):
+    l[0] += B
+    l[1] += C
+    if l[0] <= l[1] * D:
+        print(i + 1)
+        break
+else:
+    print(-1)
