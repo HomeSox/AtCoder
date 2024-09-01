@@ -1,12 +1,13 @@
-import collections as cl
-import math
-import sys
-from collections import deque
+N, X = map(int, input().split())
+A = list(map(int, input().split()))
 
-sys.setrecursionlimit(10 ** 6)
+is_know = [False] * N
 
-= input()
-= int(input())
-= map(int, input().split())
-= list(map(int, input().split()))
+while True:
+    if is_know[X - 1]:
+        break
 
+    is_know[X - 1] = True
+    X = A[X - 1]
+
+print(sum(is_know))
