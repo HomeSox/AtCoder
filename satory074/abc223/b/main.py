@@ -1,12 +1,12 @@
-import collections as cl
-import math
-import sys
-from collections import deque
+S = list(input())
 
-sys.setrecursionlimit(10 ** 6)
+d = []
+for i in range(len(S)):
+    S = [S.pop()] + S
+    d.append("".join(S))
 
-= input()
-= int(input())
-= map(int, input().split())
-= list(map(int, input().split()))
+d.sort()
 
+# print(d)
+print(d[0])
+print(d[-1])

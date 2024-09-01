@@ -1,12 +1,3 @@
-import collections as cl
-import math
-import sys
-from collections import deque
-
-sys.setrecursionlimit(10 ** 6)
-
-= input()
-= int(input())
-= map(int, input().split())
-= list(map(int, input().split()))
-
+N, K, Q = map(int, input().split())
+A = list(map(int, input().split()))
+L = list(map(int, input().split()))

@@ -1,12 +1,7 @@
-import collections as cl
-import math
-import sys
-from collections import deque
+S = input()
 
-sys.setrecursionlimit(10 ** 6)
+ans = 0
+for i, s in enumerate(S[::-1]):
+    ans += (ord(s) - ord("A") + 1) * 26**i
 
-= input()
-= int(input())
-= map(int, input().split())
-= list(map(int, input().split()))
-
+print(ans)

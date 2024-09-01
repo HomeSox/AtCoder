@@ -1,12 +1,18 @@
-import collections as cl
-import math
-import sys
-from collections import deque
+h, m = map(int, input().split())
 
-sys.setrecursionlimit(10 ** 6)
+for _ in range(3600):
+    A, B = f"{h:02d}"
+    C, D = f"{m:02d}"
+    # print(f"{A}{B}:{C}{D}")
+    # print(f"{A}{C}:{B}{D}")
 
-= input()
-= int(input())
-= map(int, input().split())
-= list(map(int, input().split()))
+    if 0 <= int(f"{A}{C}") <= 23 and 0 <= int(f"{B}{D}") <= 59:
+        print(int(f"{A}{B}"), int(f"{C}{D}"))
+        break
 
+    m += 1
+    if m == 60:
+        m = 0
+        h += 1
+    if h == 24:
+        h = 0
