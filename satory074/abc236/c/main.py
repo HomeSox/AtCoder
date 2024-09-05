@@ -1,12 +1,11 @@
-import collections as cl
-import math
-import sys
-from collections import deque
+N, M = map(int, input().split())
+S = list(input().split())
+T = list(input().split())
 
-sys.setrecursionlimit(10 ** 6)
-
-= input()
-= int(input())
-= map(int, input().split())
-= list(map(int, input().split()))
-
+cur = 0
+for i, s in enumerate(S):
+    if s == T[cur]:
+        print("Yes")
+        cur += 1
+    else:
+        print("No")
