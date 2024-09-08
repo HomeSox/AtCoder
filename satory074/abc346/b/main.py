@@ -1,12 +1,10 @@
-import collections as cl
-import math
-import sys
-from collections import deque
+W, B = map(int, input().split())
 
-sys.setrecursionlimit(10 ** 6)
+s = "wbwbwwbwbwbw" * 10**5
 
-= input()
-= int(input())
-= map(int, input().split())
-= list(map(int, input().split()))
+for i in range(len(s)):
+    if s[i : i + W + B].count("w") == W and s[i : i + W + B].count("b") == B:
+        print("Yes")
+        exit()
 
+print("No")
