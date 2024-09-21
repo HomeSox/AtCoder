@@ -1,13 +1,14 @@
-#!/usr/bin/env python3
-import collections
-import itertools as it
-import math
-#import numpy as np
- 
-#  = input()
-#  = int(input())
-#  = map(int, input().split())
-#  = list(map(int, input().split()))
-#  = [int(input()) for i in range(N)]
-#
-# c = collections.Counter()
+n = int(input())
+a = list(map(int, input().split()))
+
+ans = []
+for i, a_ in enumerate(a):
+    if i % 2 == 0:
+        ans.append(a_)
+    else:
+        ans.insert(0, a_)
+
+if n % 2 == 1:
+    ans = ans[::-1]
+
+print(*ans)
