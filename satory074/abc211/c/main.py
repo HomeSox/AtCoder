@@ -1,12 +1,13 @@
-import collections as cl
-import math
-import sys
-from collections import deque
+S = input()
 
-sys.setrecursionlimit(10 ** 6)
+MOD = 10**9 + 7
+target = "chokudai"
+dp = [0] * (len(target) + 1)
+dp[0] = 1
 
-= input()
-= int(input())
-= map(int, input().split())
-= list(map(int, input().split()))
+for char in S:
+    for j in range(len(target), 0, -1):
+        if char == target[j - 1]:
+            dp[j] = (dp[j] + dp[j - 1]) % MOD
 
+print(dp[len(target)])
