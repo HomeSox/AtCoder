@@ -1,12 +1,17 @@
-import collections as cl
-import math
-import sys
-from collections import deque
+N = int(input())
+A = list(map(int, input().split()))
 
-sys.setrecursionlimit(10 ** 6)
+ball = []
+count = 0
 
-= input()
-= int(input())
-= map(int, input().split())
-= list(map(int, input().split()))
+for a in A:
+    count += 1
+    if not ball or ball[-1][0] != a:
+        ball.append([a, 1])
+    else:
+        ball[-1][1] += 1
+        if ball[-1][1] == a:
+            count -= a
+            ball.pop()
 
+    print(count)
