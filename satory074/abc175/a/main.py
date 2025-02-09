@@ -1,12 +1,21 @@
 S = input()
 
-ma = 0
-ans = 0
-for s in S:
-    if s == "R":
-        ma += 1
+cur = S[0]
+curn = 1
+ans = -1
+for s in S[1:]:
+    if s == cur:
+        curn += 1
     else:
-        ans = max(ans, ma)
-        ma = 0
+        if cur == 'R':
+            ans = max(ans, curn)
+
+        cur = s
+        curn = 1
+
+if cur == 'R':
+    ans = max(ans, curn)
+
+ans = max(ans, 0)
 
 print(ans)
