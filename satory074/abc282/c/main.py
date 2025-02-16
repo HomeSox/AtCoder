@@ -1,12 +1,20 @@
-import collections as cl
-import math
-import sys
-from collections import deque
+N = int(input())
+S = input()
 
-sys.setrecursionlimit(10 ** 6)
+ans = ""
+is_inline = False
+for s in S:
+    if s == '"':
+        is_inline = not is_inline
 
-= input()
-= int(input())
-= map(int, input().split())
-= list(map(int, input().split()))
+    if s == ',':
+        if is_inline:
+            ans += ','
+        else:
+            ans += '.'
+    else:
+        ans += s
 
+    # print(is_inline, ans)
+
+print(ans)
