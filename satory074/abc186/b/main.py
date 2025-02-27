@@ -1,12 +1,16 @@
-import collections as cl
-import math
-import sys
-from collections import deque
+H, W = map(int, input().split())
 
-sys.setrecursionlimit(10 ** 6)
+A = [list(map(int, input().split())) for _ in range(H)]
 
-= input()
-= int(input())
-= map(int, input().split())
-= list(map(int, input().split()))
+mi = 10**18
+for a in A:
+    mi = min(mi, min(a))
 
+# print(mi)
+
+ans = 0
+for a in A:
+    for n in a:
+        ans += n - mi
+
+print(ans)
