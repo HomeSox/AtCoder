@@ -1,12 +1,19 @@
-import collections as cl
-import math
-import sys
-from collections import deque
+N = int(input())
+A = list(map(int, input().split()))
 
-sys.setrecursionlimit(10 ** 6)
+ans = 0
+Q = []
+for a in A:
+    for i in range(len(Q)):
+        Q[i] += a
 
-= input()
-= int(input())
-= map(int, input().split())
-= list(map(int, input().split()))
+    Q.append(a)
 
+    # print(Q)
+
+ans = 0
+for q in Q:
+    if q >= 4:
+        ans += 1
+
+print(ans)
