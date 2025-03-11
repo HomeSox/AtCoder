@@ -1,12 +1,11 @@
-import collections as cl
-import math
-import sys
-from collections import deque
+H, W = map(int, input().split())
 
-sys.setrecursionlimit(10 ** 6)
+S = [list(input()) for _ in range(H)]
 
-= input()
-= int(input())
-= map(int, input().split())
-= list(map(int, input().split()))
+maru = []
+for i, l in enumerate(S):
+    for j, s in enumerate(l):
+        if s == "o":
+            maru.append((i, j))
 
+print(abs(maru[0][0] - maru[1][0]) + abs(maru[0][1] - maru[1][1]))
